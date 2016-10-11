@@ -1,0 +1,19 @@
+import sys
+
+def getBinaryIP(ip):
+    str = ""
+    for x in ip.split('.'):
+    	str += bin(int(x) + 256)[3:]
+    return (str)
+
+def isConnected(ip1, ip2, mask):
+    for x1 in range(mask):
+    	  if (ip1[x1] != ip2[x1]):
+	     return False
+    return True
+
+ip1 = getBinaryIP(sys.argv[1])
+ip2 = getBinaryIP(sys.argv[2])
+print(ip1)
+print(ip2)
+print isConnected(ip1, ip2, int(sys.argv[3]))
